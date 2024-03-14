@@ -28,7 +28,7 @@ https://github.com/lakshay1121/Url_shortener_app/assets/91718893/ed558aad-8241-4
  npm install
  ```
 
-same process inside the backend/ folder.
+same process inside the backend/ folder . And start the backend by running npm start.
 Configure your env variables from mongodb and firebase.
  
  ## Step 4 , Running the Expo App - 
