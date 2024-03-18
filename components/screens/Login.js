@@ -18,9 +18,9 @@ const Login = ({ navigation }) => {
         navigation.navigate("Home");
       }
     });
-
     return unsubscribe;
   }, []);
+
   const handleLogin = () => {
     auth
       .signInWithEmailAndPassword(email, password)
@@ -37,8 +37,6 @@ const Login = ({ navigation }) => {
         <TextInput
           style={styles.textInput}
           placeholder="Enter Email"
-          
-        
           onChangeText={(val) => setEmail(val)}
         ></TextInput>
         <TextInput
@@ -93,7 +91,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
     marginBottom: 8,
-    padding:12
+    padding: 12,
   },
   button: {
     marginTop: 50,

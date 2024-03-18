@@ -39,14 +39,24 @@ export default function HomeScreen({ navigation }) {
 
   const handleShortUrlClick = (url) => {
     axios
-      .get(`${GET_URL}${url}`)
+      .get(`${GET_URL}find/${url}`)
       .then((response) => {
-        setData([response?.data]);
-        Linking.openURL(response?.data?.full);
+        Linking.openURL(`${GET_URL}${url}`);
+
+        setTimeout(() => {
+          axios
+            .get(`${GET_URL}find/${url}`)
+            .then((clickResponse) => {
+              setData([clickResponse?.data]);
+            })
+            .catch((error) =>
+              console.error("Error fetching click count:", error)
+            );
+        }, 1000);
       })
-      .catch((error) =>
-        console.error("Error handling short URL click:", error)
-      );
+      .catch((error) => {
+        console.error("Error handling short URL click:", error);
+      });
   };
 
   const handleSignOut = () => {
